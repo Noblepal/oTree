@@ -1,0 +1,15 @@
+{{ block title }}Choose amount to send {{ endblock }}
+{{ block content }}
+
+<p>
+    You are <strong>Player 1</strong>. You have <strong>Ksh. {{ C.AMOUNT_GIVEN }}</strong>.
+    How much will you send to Player 2?
+</p>
+
+{{ formfields }}
+
+<p>{{ next_button }}</p>
+
+{{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}

@@ -1,0 +1,37 @@
+{{ block title }}Results{{ endblock }}
+{{ block content }}
+
+{{ if player.id_in_group == 1 }}
+<p>
+    You chose to send Player 2 <strong>{{ group.sent_amount }}.</strong>
+    Player 2 returned <strong>{{ group.sent_back_amount }}.</strong>
+</p>
+
+<p>
+    You were initially endowed with <strong>Ksh. {{ C.AMOUNT_GIVEN }}.</strong>,
+    chose to send {{ group.sent_amount }} to Player 2,
+    and received {{ group.sent_back_amount }} back.
+    Thus, you have {{ C.AMOUNT_GIVEN }} - {{ group.sent_amount }} + {{ group.sent_back_amount }} = <strong>Ksh. {{
+    player.payoff }}</strong>
+</p>
+
+{{ else }}
+<p>
+    Player 1 sent you <strong>{{ group.sent_amount }}.</strong>
+    The amount was tripled and you received <strong>{{ tripled_amount }}.</strong>
+    You chose to send back <strong>Ksh. {{ group.sent_back_amount }}.</strong>
+</p>
+
+<p>
+    You received <strong>Ksh. {{ tripled_amount }}</strong>,
+    chose to send back <strong>Ksh. {{ group.sent_back_amount }}</strong>,
+    thus you now have {{ tripled_amount }} - {{ group.sent_back_amount }} = <strong>Ksh. {{ player.payoff }}.</strong>
+</p>
+
+{{ endif }}
+
+<p>{{ next_button }}</p>
+
+{{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}

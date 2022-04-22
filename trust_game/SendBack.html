@@ -1,0 +1,19 @@
+{{ block title }} Choose amount to send back {{ endblock }}
+{{ block content }}
+
+<p>
+    You are <strong>Player 2.</strong>
+    Player 1 sent you <strong>Ksh. {{ group.sent_amount }}</strong>.
+    And you received <strong>Ksh. {{ tripled_amount }}</strong>.
+    Now you have {{ tripled_amount }}
+    How much will you send to Player 1?
+</p>
+
+{{ formfields }}
+
+<p>{{ next_button }}</p>
+
+{{ include C.INSTRUCTIONS_TEMPLATE }}
+
+{{ endblock }}
+
