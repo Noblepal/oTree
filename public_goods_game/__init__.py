@@ -19,12 +19,12 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    total_contribution = models.CurrencyField()
-    individual_share = models.CurrencyField()
+    total_contribution = models.FloatField()
+    individual_share = models.FloatField()
 
 
 class Player(BasePlayer):
-    contribution = models.CurrencyField(
+    contribution = models.FloatField(
         min=0, max=C.ENDOWMENT, label="How much do you want to contribute?"
     )
 
@@ -35,7 +35,7 @@ def set_payoffs(group: Group):
     contributions = [p.contribution for p in players]
     group.total_contribution = sum(contributions)
     group.individual_share = (
-        group.total_contribution + C.MULTIPLIER / C.PLAYERS_PER_GROUP
+        group.total_contribution * C.MULTIPLIER / C.PLAYERS_PER_GROUP
     )
 
     for p in players:
