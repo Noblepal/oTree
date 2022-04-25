@@ -22,13 +22,13 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    sent_amount = models.CurrencyField(
+    sent_amount = models.FloatField(
         min=0,
         max=C.AMOUNT_GIVEN,
         doc="""Amount sent by Player 1""",
         label='How much will you send to Player 2?'
     )
-    sent_back_amount = models.CurrencyField(
+    sent_back_amount = models.FloatField(
         doc="""Amount sent back by Player 2""",
         min=0
     )
